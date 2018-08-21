@@ -5,15 +5,15 @@
     <item
         android:id="@+id/action_home"
         android:enabled="true"
-        android:icon="@drawable/ic_favourite_white_24dp"
+        android:icon="@drawable/ic_person_24dp"
         android:title="@string/text_home"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/action_latest"
+        android:id="@+id/action_news"
         android:enabled="true"
-        android:icon="@drawable/ic_favourite_white_24dp"
-        android:title="@string/text_latest"
+        android:icon="@drawable/ic_library_books_24dp"
+        android:title="@string/text_news"
         app:showAsAction="ifRoom"/>
 
     <item
