@@ -5,35 +5,35 @@
     <item
         android:id="@+id/action_home"
         android:enabled="true"
-        android:icon="@drawable/ic_person_24dp"
+        android:icon="@drawable/ic_home_24dp"
         android:title="@string/text_home"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_news"
         android:enabled="true"
-        android:icon="@drawable/ic_library_books_24dp"
+        android:icon="@drawable/ic_news_24dp"
         android:title="@string/text_news"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_scores"
         android:enabled="true"
-        android:icon="@drawable/ic_favourite_white_24dp"
+        android:icon="@drawable/ic_stats_24dp"
         android:title="@string/text_scores"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_stats"
         android:enabled="true"
-        android:icon="@drawable/ic_favourite_white_24dp"
+        android:icon="@drawable/ic_stats_24dp"
         android:title="@string/text_stats"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/action_more"
         android:enabled="true"
-        android:icon="@drawable/ic_favourite_white_24dp"
+        android:icon="@drawable/ic_more_24dp"
         android:title="@string/text_more"
         app:showAsAction="ifRoom"/>
 </menu>

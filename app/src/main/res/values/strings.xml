@@ -2,4 +2,7 @@
     <string name="app_name">NZIHLApp</string>
     <string name="text_home">Home</string>
     <string name="text_news">News</string>
+    <string name="text_scores">Scores</string>
+    <string name="text_stats">Stats</string>
+    <string name="text_more">More</string>
 </resources>

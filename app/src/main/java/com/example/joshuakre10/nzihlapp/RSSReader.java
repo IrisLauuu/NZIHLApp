@@ -40,6 +40,10 @@ public class RSSReader extends AppCompatActivity {
 
         titles = new ArrayList<String>();
         links = new ArrayList<String>();
+        pubDates = new ArrayList<String>();
+        creators = new ArrayList<String>();
+        categories = new ArrayList<String>();
+        descriptions = new ArrayList<String>();
 
         lvRSS.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -109,9 +113,9 @@ public class RSSReader extends AppCompatActivity {
                             if (insideItem) {
                                 categories.add(xpp.nextText());
                             }
-                        } else if (xpp.getName().equalsIgnoreCase("")) {
+                        } else if (xpp.getName().equalsIgnoreCase("description")) {
                             if (insideItem) {
-                                creators.add(xpp.nextText());
+                                descriptions.add(xpp.nextText());
                             }
                         }
                     } else if (eventType == XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item")) {
