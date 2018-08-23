@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">NZIHLApp</string>
-    <string name="text_home">Home</string>
-    <string name="text_news">News</string>
-    <string name="text_scores">Scores</string>
-    <string name="text_stats">Stats</string>
-    <string name="text_more">More</string>
+    <string name="app_name">NZIHL</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_scores">ScoresActivity</string>
+    <string name="title_activity_stats">StatsActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>
