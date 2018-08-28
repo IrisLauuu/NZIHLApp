@@ -157,7 +157,7 @@ public class NewsActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Exception e) {
-            super.onPostExecute(s);
+            super.onPostExecute(e);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(NewsActivity.this, android.R.layout.simple_list_item_1, titles);
             lvRSS.setAdapter(adapter);
