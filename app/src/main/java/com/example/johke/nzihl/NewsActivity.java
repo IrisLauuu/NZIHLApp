@@ -1,6 +1,8 @@
 package com.example.johke.nzihl;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -68,8 +70,11 @@ public class NewsActivity extends AppCompatActivity {
 
         lvRSS.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                // TODO: Change to html displayed inside app.
+                Uri uri = Uri.parse(links.get(position));
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             }
         });
 
@@ -157,7 +162,7 @@ public class NewsActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Exception e) {
-            super.onPostExecute(s);
+            super.onPostExecute(e);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(NewsActivity.this, android.R.layout.simple_list_item_1, titles);
             lvRSS.setAdapter(adapter);
