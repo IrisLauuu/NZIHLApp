@@ -42,9 +42,13 @@ public class NewsActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_news:
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_scores:
+                    return true;
+                case R.id.navigation_stats:
+                    return true;
+                case R.id.navigation_settings:
                     return true;
             }
             return false;
@@ -59,7 +63,6 @@ public class NewsActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        lvRSS = (ListView) findViewById(R.id.lvRSS);
 
         titles = new ArrayList<String>();
         links = new ArrayList<String>();
