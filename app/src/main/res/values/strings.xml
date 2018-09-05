@@ -14,9 +14,6 @@
     <string name="title_more">More</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-<<<<<<< HEAD
-    <string name="title_activity_home">HomeActivity</string>
-    <string name="title_activity_news">NewsActivity</string>
     <string name="title_activity_scores">ScoresActivity</string>
     <string name="title_activity_stats">StatsActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
@@ -34,14 +31,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-=======
     <string name="title_scores">Scores</string>
     <string name="article_image">Article Image</string>
     <string name="textview">TextView</string>
-<<<<<<< HEAD
     <string name="change_font_size">Change Font Size</string>
     <string name="share_button">Share Button</string>
-=======
->>>>>>> 8be5833cf17623b0cf57470624d325d85c00a1e6
->>>>>>> e7ede2849775e8d89937b64dec9b873ddc59c5db
 </resources>
