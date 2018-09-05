@@ -2,14 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.johke.nzihl">
 
-<<<<<<< HEAD
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-=======
     <uses-permission android:name="android.permission.INTERNET"/>
->>>>>>> 8be5833cf17623b0cf57470624d325d85c00a1e6
 
     <application
         android:allowBackup="true"
@@ -27,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home" />
@@ -46,8 +42,6 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"></activity>
-=======
->>>>>>> 8be5833cf17623b0cf57470624d325d85c00a1e6
     </application>
 
 </manifest>
