@@ -10,9 +10,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.Writer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+
+import org.htmlcleaner.HtmlCleaner;
+import org.htmlcleaner.HtmlSerializer;
+import org.htmlcleaner.TagNode;
 
 public class ArticleAdapter extends ArrayAdapter<Article> {
     private final Context context;
@@ -39,7 +45,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
         // TODO: Fix Time Format
         SimpleDateFormat fromRss = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z");
-        SimpleDateFormat articleFormat = new SimpleDateFormat("HH:mm EEE d");
+        SimpleDateFormat articleFormat = new SimpleDateFormat("hh:mm a EEE d");
 
         String reformattedDate = "";
 
@@ -49,14 +55,36 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
             e.printStackTrace();
         }
 
+        String description = fixEscapeCharacters(values.get(position).getDescription(), "&#8217;", "’");
+        description = fixEscapeCharacters(description, "[&#8230;]", "…");
+        description = fixEscapeCharacters(description, "&#8230;", "…");
+        description = fixEscapeCharacters(description, "&#8211;", "–");
+
         tvCategory.setText(values.get(position).getCategory());
         tvTitle.setText(values.get(position).getTitle());
         tvCreatorPubDate.setText(values.get(position).getCreator() + " | " + reformattedDate);
-        tvDescription.setText(values.get(position).getDescription());
+        tvDescription.setText(description);
 
         new DownLoadImageTask(ivArticleImage).execute(values.get(position).getImage());
 
         return rowView;
+    }
+
+    private String fixEscapeCharacters(String source, String pattern, String replacement) {
+        if (source == null) {
+            return "";
+        }
+
+        StringBuffer sb = new StringBuffer();
+        int index;
+        int patIndex = 0;
+        while ((index = source.indexOf(pattern, patIndex)) != -1) {
+            sb.append(source.substring(patIndex, index));
+            sb.append(replacement);
+            patIndex = index + pattern.length();
+        }
+        sb.append(source.substring(patIndex));
+        return sb.toString();
     }
 }
 

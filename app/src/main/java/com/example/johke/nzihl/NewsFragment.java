@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -23,7 +22,6 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -40,6 +38,7 @@ public class NewsFragment extends BottomBarFragment {
     ArrayList<String> categories;
     ArrayList<String> descriptions;
     ArrayList<String> images;
+    ArrayList<String> contents;
 
     public NewsFragment() {
         // Required empty public constructor
@@ -61,12 +60,13 @@ public class NewsFragment extends BottomBarFragment {
         categories = new ArrayList<>();
         descriptions = new ArrayList<>();
         images = new ArrayList<>();
+        contents = new ArrayList<>();
 
         lvRSS.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Uri uri = Uri.parse(links.get(position));
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                Intent intent = new Intent(getActivity(), NewsActivity.class);
+                intent.putExtra("article", articles.get(position));
                 startActivity(intent);
             }
         });
@@ -143,6 +143,10 @@ public class NewsFragment extends BottomBarFragment {
                             if (insideItem) {
                                 pubDates.add(xpp.nextText());
                             }
+                        } else if (xpp.getName().equalsIgnoreCase("content:encoded")) {
+                            if (insideItem) {
+                                contents.add(xpp.nextText());
+                            }
                         }
                     } else if (eventType == XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item")) {
                         insideItem = false;
@@ -171,7 +175,7 @@ public class NewsFragment extends BottomBarFragment {
             }
 
             for (int i = 0; i < titles.size(); i++) {
-                articles.add(new Article(titles.get(i), descriptions.get(i), categories.get(i), creators.get(i), pubDates.get(i), images.get(i), links.get(i)));
+                articles.add(new Article(titles.get(i), descriptions.get(i), categories.get(i), creators.get(i), pubDates.get(i), images.get(i), links.get(i), contents.get(i), i, titles.size()));
             }
 
             return exception;

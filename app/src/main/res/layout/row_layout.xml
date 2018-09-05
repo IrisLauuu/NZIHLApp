@@ -26,7 +26,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:paddingTop="10dp"
+                    android:paddingTop="5dp"
                     android:text="@string/textview"
                     android:textStyle="bold" />
 
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:paddingTop="10dp"
+                    android:paddingTop="5dp"
                     android:text="@string/textview"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:paddingTop="10dp"
+                    android:paddingTop="5dp"
                     android:text="@string/textview" />
 
             </LinearLayout>
