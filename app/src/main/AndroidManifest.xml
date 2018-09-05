@@ -2,7 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.johke.nzihl">
 
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET" />
+=======
+<<<<<<< HEAD
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+=======
+    <uses-permission android:name="android.permission.INTERNET"/>
+>>>>>>> 8be5833cf17623b0cf57470624d325d85c00a1e6
+>>>>>>> e7ede2849775e8d89937b64dec9b873ddc59c5db
 
     <application
         android:allowBackup="true"
@@ -20,7 +31,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".NewsActivity"></activity>
+=======
+<<<<<<< HEAD
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home" />
+        <activity
+            android:name=".NewsActivity"
+            android:label="@string/title_activity_news" />
+        <activity
+            android:name=".ScoresActivity"
+            android:label="@string/title_activity_scores" />
+        <activity
+            android:name=".StatsActivity"
+            android:label="@string/title_activity_stats" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"></activity>
+=======
+>>>>>>> 8be5833cf17623b0cf57470624d325d85c00a1e6
+>>>>>>> e7ede2849775e8d89937b64dec9b873ddc59c5db
     </application>
 
 </manifest>
