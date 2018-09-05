@@ -21,6 +21,7 @@ public class BottomBarFragment extends Fragment {
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,7 +30,9 @@ public class BottomBarFragment extends Fragment {
         textView = (TextView) rootView.findViewById(R.id.fragment_bottom_bar_text_activetab);
 
         String title = getArguments().getString(ARG_TITLE, "");
-        textView.setText(title);
+
+
+
         return rootView;
     }
 
