@@ -32,13 +32,18 @@ import java.util.List;
 public class NewsFragment extends BottomBarFragment {
 
     ListView lvRSS;
+    ArrayList<Article> articles;
     ArrayList<String> titles;
     ArrayList<String> links;
+    ArrayList<String> pubDates;
+    ArrayList<String> creators;
+    ArrayList<String> categories;
+    ArrayList<String> descriptions;
+    ArrayList<String> images;
 
     public NewsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,10 +51,16 @@ public class NewsFragment extends BottomBarFragment {
 
         View rootView = inflater.inflate(R.layout.fragment_news, container, false);
 
-        lvRSS = (ListView) rootView.findViewById(R.id.lvRSS);
+        lvRSS = rootView.findViewById(R.id.lvRSS);
 
+        articles = new ArrayList<>();
         titles = new ArrayList<>();
         links = new ArrayList<>();
+        pubDates = new ArrayList<>();
+        creators = new ArrayList<>();
+        categories = new ArrayList<>();
+        descriptions = new ArrayList<>();
+        images = new ArrayList<>();
 
         lvRSS.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -99,6 +110,7 @@ public class NewsFragment extends BottomBarFragment {
                 xpp.setInput(getInputStream(url), "UTF_8");
 
                 boolean insideItem = false;
+                boolean itemCategory = false;
 
                 int eventType = xpp.getEventType();
 
@@ -114,9 +126,27 @@ public class NewsFragment extends BottomBarFragment {
                             if (insideItem) {
                                 links.add(xpp.nextText());
                             }
+                        } else if (xpp.getName().equalsIgnoreCase("description")) {
+                            if (insideItem) {
+                                descriptions.add(xpp.nextText());
+                            }
+                        } else if (xpp.getName().equalsIgnoreCase("category")) {
+                            if (insideItem && !itemCategory) {
+                                categories.add(xpp.nextText());
+                                itemCategory = true;
+                            }
+                        } else if (xpp.getName().equalsIgnoreCase("dc:creator")) {
+                            if (insideItem) {
+                                creators.add(xpp.nextText());
+                            }
+                        } else if (xpp.getName().equalsIgnoreCase("pubDate")) {
+                            if (insideItem) {
+                                pubDates.add(xpp.nextText());
+                            }
                         }
                     } else if (eventType == XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item")) {
                         insideItem = false;
+                        itemCategory = false;
                     }
 
                     eventType = xpp.next();
@@ -130,6 +160,19 @@ public class NewsFragment extends BottomBarFragment {
                 exception = e;
             }
 
+            OpenGraph link;
+            for (int i = 0; i < links.size(); i++) {
+                try {
+                    link = new OpenGraph(links.get(i), true);
+                    images.add(link.getContent("image"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            for (int i = 0; i < titles.size(); i++) {
+                articles.add(new Article(titles.get(i), descriptions.get(i), categories.get(i), creators.get(i), pubDates.get(i), images.get(i), links.get(i)));
+            }
 
             return exception;
         }
@@ -138,7 +181,7 @@ public class NewsFragment extends BottomBarFragment {
         protected void onPostExecute(Exception e) {
             super.onPostExecute(e);
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, titles);
+            ArticleAdapter adapter = new ArticleAdapter(getActivity(), articles);
 
             lvRSS.setAdapter(adapter);
 
