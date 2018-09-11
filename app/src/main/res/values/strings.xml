@@ -36,4 +36,7 @@
     <string name="textview">TextView</string>
     <string name="change_font_size">Change Font Size</string>
     <string name="share_button">Share Button</string>
+
+    <string name="facebook_app_id">480453675788249</string>
+    <string name="fb_login_protocol_scheme">fb480453675788249</string>
 </resources>
