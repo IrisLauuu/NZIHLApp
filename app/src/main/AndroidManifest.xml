@@ -24,7 +24,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home" />
+        <activity
+            android:name=".NewsActivity"
+            android:label="@string/title_activity_news" />
+        <activity
+            android:name=".ScoresActivity"
+            android:label="@string/title_activity_scores" />
+        <activity
+            android:name=".StatsActivity"
+            android:label="@string/title_activity_stats" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"></activity>
     </application>
 
 </manifest>
