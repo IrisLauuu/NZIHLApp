@@ -23,15 +23,11 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".NewsActivity"></activity>
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
         //stops the auto logging of data to be sent to facebook
         <activity android:name=".MainActivity"
-            android:label="@string/title_activity_login"/>
+            android:label="@string/title_home"/>
         <meta-data
             android:name="com.facebook.sdk.AutoLogEventsEnabled"
             android:value="false" />

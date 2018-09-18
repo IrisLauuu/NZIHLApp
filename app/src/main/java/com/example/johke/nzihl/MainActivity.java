@@ -84,4 +84,10 @@ public class MainActivity extends AppCompatActivity {
     private void switchFragment(int pos, String tag) {
         getFragmentManager().beginTransaction().replace(R.id.frame_fragmentholder, fragments.get(pos), tag).commit();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
 }

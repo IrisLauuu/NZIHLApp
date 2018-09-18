@@ -85,16 +85,14 @@ public class NewsFragment extends BottomBarFragment {
     }
 
     public class ProcessInBackground extends AsyncTask<Integer, Void, Exception> {
-        ProgressDialog progressDialog = new ProgressDialog(getActivity());
         Exception exception = null;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
-            progressDialog.setMessage("Busy loading... please wait...");
-            progressDialog.show();
         }
+
+
 
         @Override
         protected Exception doInBackground(Integer... integers) {
@@ -188,8 +186,6 @@ public class NewsFragment extends BottomBarFragment {
             ArticleAdapter adapter = new ArticleAdapter(getActivity(), articles);
 
             lvRSS.setAdapter(adapter);
-
-            progressDialog.dismiss();
         }
     }
 
